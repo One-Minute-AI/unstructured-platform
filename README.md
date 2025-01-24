@@ -1,4 +1,5 @@
 # Unstructured Platform SDK
+![Logo](https://raw.githubusercontent.com/Unstructured-IO/unstructured/main/img/unstructured_logo.png)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Unstructured-IO/unstructured/main/img/unstructured_logo.png" alt="Unstructured.io Logo" width="150"/>
