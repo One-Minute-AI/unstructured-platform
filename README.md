@@ -29,7 +29,7 @@ This SDK was developed by [One Minute AI](https://www.oneminuteai.com), the AI p
 ## Installation
 
 ```bash
-pip install unstructured-platform-sdk
+pip install unstructured-platform
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ pip install unstructured-platform-sdk
 ### Initialize the client
 
 ```python
-from unstructured_platform_sdk import UnstructuredPlatformClient
+from unstructured_platform import UnstructuredPlatformClient
 
 client = UnstructuredPlatformClient(api_key="your-api-key")
 ```
@@ -45,7 +45,7 @@ client = UnstructuredPlatformClient(api_key="your-api-key")
 ### Working with Source Connectors
 
 ```python
-from unstructured_platform_sdk.models import PublicSourceConnectorType
+from unstructured_platform.models import PublicSourceConnectorType
 
 # List source connectors
 sources = client.sources.list()
@@ -55,10 +55,9 @@ source = client.sources.create(
     name="My S3 Source",
     type=PublicSourceConnectorType.S3,
     config={
-        "bucket": "my-bucket",
-        "prefix": "documents/",
-        "aws_access_key_id": "your-access-key",
-        "aws_secret_access_key": "your-secret-key",
+        "remote_url": "s3://my-bucket/documents/",
+        "key": "your-access-key",
+        "secret": "your-secret-key",
     },
 )
 
@@ -69,7 +68,7 @@ source = client.sources.get(source_id="source-id")
 updated_source = client.sources.update(
     source_id="source-id",
     config={
-        "prefix": "new-prefix/",
+        "remote_url": "s3://my-bucket/new-prefix/",
     },
 )
 
@@ -80,19 +79,20 @@ client.sources.delete(source_id="source-id")
 ### Working with Destination Connectors
 
 ```python
-from unstructured_platform_sdk.models import PublicDestinationConnectorType
+from unstructured_platform.models import PublicDestinationConnectorType
 
 # List destination connectors
 destinations = client.destinations.list()
 
 # Create a destination connector
 destination = client.destinations.create(
-    name="My Elasticsearch Destination",
-    type=PublicDestinationConnectorType.ELASTICSEARCH,
+    name="My Pinecone Destination",
+    type=PublicDestinationConnectorType.PINECONE,
     config={
-        "host": "https://my-es-cluster.com",
-        "index": "documents",
-        "api_key": "your-es-api-key",
+        "environment": "us-west1-gcp",
+        "api_key": "your-pinecone-api-key",
+        "index_name": "documents",
+        "namespace": "default",
     },
 )
 
@@ -103,7 +103,7 @@ destination = client.destinations.get(destination_id="destination-id")
 updated_destination = client.destinations.update(
     destination_id="destination-id",
     config={
-        "index": "new-index",
+        "namespace": "new-namespace",
     },
 )
 
@@ -114,11 +114,7 @@ client.destinations.delete(destination_id="destination-id")
 ### Working with Workflows
 
 ```python
-from unstructured_platform_sdk.models import (
-    WorkflowAutoStrategy,
-    WorkflowSchedule,
-    CronTabEntry,
-)
+from unstructured_platform.models import WorkflowAutoStrategy
 
 # List workflows
 workflows = client.workflows.list()
@@ -129,11 +125,7 @@ workflow = client.workflows.create(
     source_id="source-id",
     destination_id="destination-id",
     workflow_type=WorkflowAutoStrategy.BASIC,
-    schedule=WorkflowSchedule(
-        crontab_entries=[
-            CronTabEntry(cron_expression="0 0 * * *"),  # Daily at midnight
-        ],
-    ),
+    schedule="0 0 * * *",  # Daily at midnight
 )
 
 # Get a workflow
