@@ -3,8 +3,8 @@
 from typing import List, Optional
 from pydantic import UUID4
 
-from unstructured_platform_sdk.api.base import BaseAPI
-from unstructured_platform_sdk.models import JobInformation
+from unstructured_platform.api.base import BaseAPI
+from unstructured_platform.models import JobInformation
 
 
 class JobsAPI(BaseAPI):

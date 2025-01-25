@@ -3,10 +3,10 @@
 import requests
 from typing import Optional, Dict, Any
 
-from unstructured_platform_sdk.api.sources import SourcesAPI
-from unstructured_platform_sdk.api.destinations import DestinationsAPI
-from unstructured_platform_sdk.api.workflows import WorkflowsAPI
-from unstructured_platform_sdk.api.jobs import JobsAPI
+from unstructured_platform.api.sources import SourcesAPI
+from unstructured_platform.api.destinations import DestinationsAPI
+from unstructured_platform.api.workflows import WorkflowsAPI
+from unstructured_platform.api.jobs import JobsAPI
 
 
 class UnstructuredPlatformClient:

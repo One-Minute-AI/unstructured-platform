@@ -3,7 +3,7 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from unstructured_platform_sdk.client import UnstructuredPlatformClient
+    from unstructured_platform.client import UnstructuredPlatformClient
 
 
 class BaseAPI:

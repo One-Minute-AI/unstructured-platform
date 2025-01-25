@@ -3,8 +3,8 @@
 from typing import List, Optional, Dict, Any
 from pydantic import UUID4
 
-from unstructured_platform_sdk.api.base import BaseAPI
-from unstructured_platform_sdk.models import (
+from unstructured_platform.api.base import BaseAPI
+from unstructured_platform.models import (
     SourceConnector,
     PublicSourceConnectorType,
 )

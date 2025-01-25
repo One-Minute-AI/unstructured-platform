@@ -11,8 +11,8 @@ import os
 import pytest
 from datetime import datetime
 
-from unstructured_platform_sdk import UnstructuredPlatformClient
-from unstructured_platform_sdk.models import (
+from unstructured_platform import UnstructuredPlatformClient
+from unstructured_platform.models import (
     PublicSourceConnectorType,
     PublicDestinationConnectorType,
     WorkflowAutoStrategy,
@@ -195,7 +195,7 @@ def test_workflow_lifecycle(client):
         #assert run_result.id == workflow.id
         
         # Get job status
-        jobs = client.jobs.list(workflow_id=str(workflow.id))
+        jobs = client.jobs.list()
         assert len(jobs) > 0
         
         # Delete workflow
