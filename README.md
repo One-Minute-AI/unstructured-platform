@@ -8,7 +8,7 @@ A Python SDK for the [Unstructured Platform API](https://docs.unstructured.io/pl
 
 Unstructured Platform is an enterprise-grade ETL (Extract, Transform, Load) platform designed specifically for Large Language Models (LLMs). It provides a no-code UI and production-ready infrastructure to help organizations transform raw, unstructured data into LLM-ready formats. With over 18 million downloads and used by more than 50,000 companies, Unstructured Platform enables data scientists and engineers to spend less time collecting and cleaning data, and more time on modeling and analysis.
 
-This SDK was developed by [One Minute AI](https://www.oneminuteai.com), the AI platform that provides a one-click (or one line of code) way to create AI assistants and apps using data ingested by Unstructured.
+This SDK was developed by [One Minute AI](https://www.oneminuteai.com) to make it easier for Python developers to interact with the Unstructured Platform API. One Minute AI allows you to **transform your data** into **custom AI assistants and apps** in seconds, powered by Unstructured's enterprise data engine.
 
 <!-- Hidden
 <div align="right">
@@ -24,7 +24,6 @@ This SDK was developed by [One Minute AI](https://www.oneminuteai.com), the AI p
     - [Working with Destination Connectors](#working-with-destination-connectors)
     - [Working with Workflows](#working-with-workflows)
     - [Working with Jobs](#working-with-jobs)
-  - [License](#license)
 
 ## Installation
 
@@ -156,7 +155,3 @@ job = client.jobs.get(job_id="job-id")
 # Cancel a job
 client.jobs.cancel(job_id="job-id")
 ```
-
-## License
-
-MIT
